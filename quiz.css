@@ -1,0 +1,137 @@
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+.animationDisplay {
+  margin: 50px auto;
+  height: 200px;
+  margin-bottom: 0px;
+
+  background-position: center;
+  background-repeat: no-repeat;
+  animation: colorChange 10s infinite;
+  cursor: pointer;
+  background-size: 500px;
+ 
+}
+
+@keyframes colorChange {
+  0% {
+    background-image: url(newQ7.jpeg);
+  }
+
+  25% {
+    background-image: url(newQ3.jpg);
+  }
+  50% {
+    background-image: url(newQ6.jpeg);
+  }
+  75% {
+    background-image: url(newQ7.jpeg);
+  }
+
+  100% {
+    background-image: url(newQuiz2.jpg);
+  }
+}
+
+#quiz-container {
+  max-width: 890px;
+  margin: 50px auto;
+  margin-top: 5px;
+  padding: 20px;
+  border: 5px solid rgb(35, 36, 36);
+  border-radius: 50px;
+  background-image: linear-gradient(rgba(4, 34, 41, 0.703), rgba(34, 46, 61, 0.219)),
+    url(newQ3.jpg);
+  background-repeat: round;
+ 
+}
+#quiz-container:hover {
+  background-image: linear-gradient(rgba(25, 19, 105, 0.703), rgba(109, 12, 49, 0.2)),
+    url(newQ3.jpg);
+}
+
+/* #countdown {
+  font-size: 30px;
+  color: #ff0000;
+  padding-right: 590px;
+  
+} */
+ 
+#countdown {
+  margin-top: 20px;
+  font-size: 24px;
+  color: green;
+}
+
+
+#question-container {
+  color: white;
+  font-size: 25px;
+  font-weight: bold;
+  font-family:Verdana, Geneva, Tahoma, sans-serif ;
+  padding-bottom: 30px;
+  margin-top: 40px;
+}
+
+#options-container {
+  display: grid;
+  grid-template-columns: repeat(2, 2fr);
+  grid-gap: 70px;
+}
+
+button:hover {
+  color: gold;
+  font-size: smaller;
+  font-style: italic;
+}
+
+button {
+  background-color: rgb(1 137 224);
+  color: whitesmoke;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  border-radius: 50px;
+  
+}
+
+button:disabled {
+  background-color: rgb(1 137 224);
+  cursor: not-allowed;
+}
+
+#result-container {
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 20px;
+  color: white;
+}
+
+.btn {
+  color: white;
+  margin-top: 30px;
+  font-size: 20px;
+}
+
+.button-container{
+
+  margin-left: 10px;
+}
+
+#time {
+  color: #f9f9fc;
+  font-size: 20px;
+  font-weight: lighter;
+  font-style: italic;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+h4 {
+  color: white;
+}
