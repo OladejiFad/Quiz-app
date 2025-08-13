@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Quiz App</title>
+  <link rel="stylesheet" href="style/quiz.css" />
+</head>
+<body>
+  <main id="app">
+
+    <!-- Intro Page -->
+    <section id="intro-page" class="card">
+      <img src="image/newQ3.jpg" alt="Quiz character" />
+      <h2>Welcome to the Quiz!</h2>
+      <p>Test your knowledge and have fun. Click below to start.</p>
+      <button id="start-quiz" class="btn">Start Quiz</button>
+    </section>
+
+    <!-- Quiz Container -->
+    <section id="quiz-container" class="quiz-container" style="display:none;">
+      <section id="quiz-card" class="quiz-card card" aria-live="polite">
+
+        <!-- Top Bar -->
+        <div class="topbar">
+          <div class="qcount" id="qcount">Question 1 / 6</div>
+          <div class="timer">⏱ <span id="countdown">00:30</span></div>
+        </div>
+
+        <!-- Progress Bar -->
+        <div class="progress" aria-hidden="true">
+          <div id="progress-fill" class="progress__fill"></div>
+        </div>
+
+        <!-- Question -->
+        <h1 id="question-container" class="question fade-in"></h1>
+
+        <!-- Options -->
+        <div id="options-container" class="options" role="group" aria-labelledby="question-container"></div>
+
+        <!-- Feedback -->
+        <div id="feedback" class="feedback" aria-live="polite"></div>
+
+        <!-- Controls -->
+        <div class="controls">
+          <button id="prev-btn" class="btn btn--ghost" type="button">⏮ Prev</button>
+          <button id="next-btn" class="btn" type="button">Next ⏭</button>
+          <button id="restart-btn" class="btn btn--warn" type="button">🔁 Restart</button>
+        </div>
+      </section>
+    </section>
+
+    <!-- Result Page -->
+    <section id="result-container" class="card card--center" style="display:none;">
+      <h2>Quiz completed!</h2>
+      <p id="score-line" style="color:#f8fafc;"></p>
+      <button id="play-again" class="btn" type="button">Play again</button>
+    </section>
+
+  </main>
+
+  <!-- Script -->
+  <script src="scripts/script.js"></script>
+</body>
+</html>
