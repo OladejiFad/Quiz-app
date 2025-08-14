@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Quiz App</title>
   <link rel="stylesheet" href="style/quiz.css" />
 </head>
@@ -10,39 +10,43 @@
   <main id="app">
 
     <!-- Intro Page -->
-    <section id="intro-page" class="card">
-      <img src="image/newQ3.jpg" alt="Quiz character" />
-      <h2>Welcome to the Quiz!</h2>
-      <p>Test your knowledge and have fun. Click below to start.</p>
-      <button id="start-quiz" class="btn">Start Quiz</button>
+    <section id="intro-page" class="card" aria-labelledby="intro-title">
+      <img src="image/newQ3.jpg" alt="Smiling character holding a book" />
+      <h2 id="intro-title">Welcome to the Quiz!</h2>
+      <p id="intro-desc">Test your knowledge and have fun. Enter player names, choose a difficulty, and start!</p>
+
+      <div style="display:flex; flex-direction:column; gap:10px; align-items:center; width:100%; max-width:420px;">
+        <input type="text" id="player1-name" placeholder="Player 1 Name (optional)" aria-label="Player 1 name"/>
+        <input type="text" id="player2-name" placeholder="Player 2 Name (optional)" aria-label="Player 2 name"/>
+        <select id="difficulty" aria-label="Select difficulty">
+          <option value="easy">Easy</option>
+          <option value="medium" selected>Medium</option>
+          <option value="hard">Hard</option>
+        </select>
+        <select id="section" aria-label="Select quiz section">
+          <option value="adult" selected>Adult / Football Quiz</option>
+          <option value="kids">Kids / General Knowledge</option>
+        </select>
+        <div style="display:flex; gap:8px; width:100%; justify-content:center; margin-top:6px;">
+          <button id="start-quiz" class="btn" type="button">Start Quiz</button>
+        </div>
+      </div>
     </section>
 
     <!-- Quiz Container -->
-    <section id="quiz-container" class="quiz-container" style="display:none;">
-      <section id="quiz-card" class="quiz-card card" aria-live="polite">
-
-        <!-- Top Bar -->
-        <div class="topbar">
+    <section id="quiz-container" class="quiz-container" aria-live="polite" style="display:none;">
+      <section id="quiz-card" class="quiz-card card" aria-labelledby="question-container">
+        <div class="topbar" role="region" aria-label="Question progress and timer">
           <div class="qcount" id="qcount">Question 1 / 6</div>
-          <div class="timer">⏱ <span id="countdown">00:30</span></div>
+          <div class="timer" aria-live="polite">⏱ <span id="countdown">00:30</span></div>
         </div>
-
-        <!-- Progress Bar -->
         <div class="progress" aria-hidden="true">
-          <div id="progress-fill" class="progress__fill"></div>
+          <div id="progress-fill" class="progress__fill" style="width:0%"></div>
         </div>
-
-        <!-- Question -->
         <h1 id="question-container" class="question fade-in"></h1>
-
-        <!-- Options -->
-        <div id="options-container" class="options" role="group" aria-labelledby="question-container"></div>
-
-        <!-- Feedback -->
+        <div id="options-container" class="options" role="list" aria-labelledby="question-container"></div>
         <div id="feedback" class="feedback" aria-live="polite"></div>
-
-        <!-- Controls -->
-        <div class="controls">
+        <div class="controls" role="toolbar" aria-label="Quiz controls">
           <button id="prev-btn" class="btn btn--ghost" type="button">⏮ Prev</button>
           <button id="next-btn" class="btn" type="button">Next ⏭</button>
           <button id="restart-btn" class="btn btn--warn" type="button">🔁 Restart</button>
@@ -51,15 +55,31 @@
     </section>
 
     <!-- Result Page -->
-    <section id="result-container" class="card card--center" style="display:none;">
-      <h2>Quiz completed!</h2>
-      <p id="score-line" style="color:#f8fafc;"></p>
-      <button id="play-again" class="btn" type="button">Play again</button>
+    <section id="result-container" class="card card--center" aria-live="polite" style="display:none;">
+      <h2 id="result-title">Quiz completed!</h2>
+      <div class="player-results"></div>
+      <div id="result-extra" style="color:var(--muted); margin-bottom:12px;"></div>
+      <div style="margin:16px 0; display:flex; gap:10px; flex-wrap:wrap; justify-content:center;">
+        <button id="share-twitter" class="btn" type="button">Share on Twitter</button>
+        <button id="share-whatsapp" class="btn" type="button">Share on WhatsApp</button>
+        <button id="share-facebook" class="btn" type="button">Share on Facebook</button>
+      </div>
+      <div style="display:flex; gap:10px; justify-content:center;">
+        <button id="play-again" class="btn" type="button">Play Again</button>
+      </div>
     </section>
 
   </main>
 
-  <!-- Script -->
+  <!-- Confetti Canvas (place BEFORE scripts) -->
+ <canvas id="confetti-canvas" style="position:fixed; top:0; left:0; width:100%; height:100%; pointer-events:none; z-index:9999;"></canvas>
+ 
+<!-- Confetti Library -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
+
+
+ <!-- Your quiz script -->
   <script src="scripts/script.js"></script>
+
 </body>
 </html>
